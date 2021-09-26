@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'provider/theme_provider.dart';
-import 'screens/home_screen.dart';
+import 'screens/product_detail_screen.dart';
+import 'screens/product_overview_screen.dart';
 import 'utility/theme_data.dart';
 
 void main() {
@@ -22,7 +23,11 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.themeMode,
           theme: MyThemeData.lightTheme,
           darkTheme: MyThemeData.darkTheme,
-          home: const HomeScreen(),
+          initialRoute: '/ProductOverviewScreen',
+          routes: {
+            '/ProductOverviewScreen': (context) => ProductOverviewScreen(),
+            '/ProductDetailScreen': (context) => const ProductDetailScreen(),
+          },
         );
       },
     );
