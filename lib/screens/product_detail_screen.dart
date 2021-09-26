@@ -13,7 +13,7 @@ class ProductDetailScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const BackButton(),
+              BackButton(color: Theme.of(context).primaryColor),
               Align(
                 child: Column(
                   children: const [

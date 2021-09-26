@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class ProductItem extends StatelessWidget {
   final String? id;
   final String? title;
+  final String? price;
   final String? imageUrl;
   const ProductItem({
     Key? key,
     this.id,
     this.title,
+    this.price,
     this.imageUrl,
   }) : super(key: key);
 
@@ -56,19 +58,27 @@ class ProductItem extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 2),
+                  Text(
+                    '\u20B9 ${price!}',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
                             onPressed: () {},
                             icon: const Icon(
-                              Icons.favorite,
+                              Icons.favorite_border,
                             )),
                         IconButton(
                             onPressed: () {},
                             icon: const Icon(
-                              Icons.shopping_cart,
+                              Icons.shopping_cart_outlined,
                             )),
                       ])
                 ],

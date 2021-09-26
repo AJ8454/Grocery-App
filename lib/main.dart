@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'provider/products_provider.dart';
 import 'provider/theme_provider.dart';
 import 'screens/product_detail_screen.dart';
 import 'screens/product_overview_screen.dart';
@@ -9,13 +10,18 @@ void main() {
   runApp(const MyApp());
 }
 
+// TODO: video 176..
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => ThemeProvider()),
+        ChangeNotifierProvider(create: (ctx) => ProductsProvider()),
+      ],
       builder: (context, _) {
         final themeProvider = Provider.of<ThemeProvider>(context);
         return MaterialApp(
